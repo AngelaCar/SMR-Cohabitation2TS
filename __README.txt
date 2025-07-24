@@ -82,4 +82,25 @@ Note: Figures 1-3 and Figures A1-A2 are illustrative, and
 8. The script "6_Figure5.R" reproduces Figure 5
 9. The script "7_Figure6.R" reproduces Figure 6
 
+---- SENSITIVITY ANALYSES (Online supplement) ----
+10. The scripts "8.1_tts_marriage15p.R" and "8.2_tts_separation15p.R"
+    fit the two time scales P-splines models to the events marriage
+    and separation respectively, to a sample where the age at entry
+    into cohabitation is lowered to 15 years.
+11. The scripts "9.1_tts_marriage_firstonly.R" and
+    "9.2_tts_separation_firstonly.R" fit the two time scales P-splines 
+    models to the events marriage and separation respectively, 
+    to a sample restricted to first cohabitation only.
+12. The script "10_sensitivity_Hiekel2015.R" first, using the most recent 
+    version of the data, recreates the sample studied by Hiekel and 
+    colleagues in their 2015 paper "Marriage and separation risks among
+    German cohabiters: Differences between types of cohabiter.
+    Population Studies, 69(2):237–251.". Then, it analyses this sample
+    via the two time scales approach and produces the results presented in 
+    Table S1 and Figure S14.
+
+---- FIGURES (online supplement) ----
+13-25. The scripts "_FigureS2.R" to "_FigureS13.R" reproduces Figures S2-S13
+       presented in the online supplement.
+
 
