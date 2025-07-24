@@ -12,7 +12,6 @@ rm(list=ls())
 library(fields)
 library(viridis)
 library(TwoTimeScales)
-library(RColorBrewer)
 library(JOPS)
 
 # ---- Results ----

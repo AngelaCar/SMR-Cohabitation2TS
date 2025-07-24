@@ -262,4 +262,66 @@ one_cohab[durcoh_y >= 23 & event_type != "no_event", event_type := "no_event"]
 save(one_cohab, file = "one_cohabitation18.Rda")
 
 
+## For sensitivity analysis, save one version of the file where age at cohabitation
+## is >= 15
+# biopart_het_coh2_15p <- biopart_het_coh2[agecoh_y >= 15]
+# # restrictions on marriages below 18 years
+# biopart_het_coh2_15p <- biopart_het_coh2_15p[!((ageobsend_y < 18) & (event_type == "marriage"))]
+
+# merge the data by interview date and wave_coh
+# biopart_het_coh3_15p <- merge(biopart_het_coh2_15p, all_waves_ind, all.x = TRUE,  
+#                           by.x = c("id", "wave_Acoh"), by.y = c("id", "dateint"))
+# 
+# # as.data.table
+# biopart_het_coh3_15p <- as.data.table(biopart_het_coh3_15p)
+# 
+# # order by id and beginning of cohabitation
+# setorder(biopart_het_coh3_15p, id, cohbeg)
+# 
+# # Education
+# education <- all_waves_ind[, c("id","ageint_y", "isced", "isced2")]
+# #describe(biopart_het_coh3$isced)
+# #describe(biopart_het_coh3$isced2)
+# 
+# biopart_het_coh3_15p[, educ_cat := ifelse(isced2 == -7 | isced2 == 0, "Unknown", NA)]
+# biopart_het_coh3_15p[, educ_cat := ifelse(isced2 == 1 | isced2 == 2 | isced2 == 3,
+#                                       "Low", educ_cat)]
+# biopart_het_coh3_15p[, educ_cat := ifelse(isced2 == 4 | isced2 == 5 | isced2 == 6,
+#                                       "Middle", educ_cat)]
+# biopart_het_coh3_15p[, educ_cat := ifelse(isced2 == 7 | isced2 == 8 ,
+#                                       "High", educ_cat)]
+# describe(biopart_het_coh3_15p$educ_cat)
+# 
+# # remove Unknown education
+# biopart_het_coh4_15p <- biopart_het_coh3_15p[!educ_cat == "Unknown"]
+# 
+# table(biopart_het_coh4_15p$east)
+# # one missing values for east
+# biopart_het_coh4_15p <- biopart_het_coh4_15p[! east == -7]
+# table(biopart_het_coh4_15p$cohort)
+# # only one individual from cohort 4
+# biopart_het_coh4_15p <- biopart_het_coh4_15p[! cohort == 4]
+# #
+# 
+# # rename the data
+# all_cohab_waves_15p <- biopart_het_coh4_15p
+# 
+# ## One cohabitation per individual only
+# setorder(all_cohab_waves_15p, id, cohbeg)
+# # table(all_cohab_waves$n_cohabitation)
+# describe(all_cohab_waves_15p$id)
+# one_cohab_15p <- all_cohab_waves_15p[!duplicated(id)]
+# 
+# # Duration of cohabitation at entry time (entry_time - cohbeg)/12 (in years)
+# one_cohab_15p[, dur_entry := ((entry_time - cohbeg)/12)]
+# one_cohab_15p[, age_entry := agecoh_y + dur_entry]
+# # Is this the first cohabitation ever or not?
+# one_cohab_15p[, first_ever := ifelse(n_cohabitation == 1, "yes", "no")]
+# 
+# # finally, censor events that happen after more than 23 years of cohabitation
+# # there are only 3
+# View(one_cohab_15p[durcoh_y >= 23 & event_type != "no_event"])
+# one_cohab_15p[durcoh_y >= 23 & event_type != "no_event", event_type := "no_event"]
+# 
+# save(one_cohab_15p, file = "one_cohabitation15.Rda")
 

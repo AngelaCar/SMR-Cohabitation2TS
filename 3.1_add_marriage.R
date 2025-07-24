@@ -273,7 +273,7 @@ ns <- length(mids)
 # number of segments on the two axes -
 # it depends on the how many mid-points
 nsu <- 11
-nss <- 10
+nss <- 9
 deg <- 3 # degree of the B-splines
 pord <- 2 # order of the penalty
 
