@@ -41,30 +41,30 @@ par(mfrow = c(1,2),
     cex.lab = 1.2
 )
 plot(km_dur$time[1:n1], km_dur$n.risk[1:n1], 
-     col = "orchid", pch = 20,
+     col = "#D81B60", pch = 15,
      xlab = "Duration of the cohabitation (years)",
      ylab = "No. of individuals at risk")
 
-points(km_dur$time[n1+1:n2], km_dur$n.risk[n1+1:n2], 
-       col = "hotpink", pch = 20)
-points(km_dur$time[n2+1:n3], km_dur$n.risk[n2+1:n3], 
-       col = "steelblue", pch = 20)
-points(km_dur$time[n3+1:n4], km_dur$n.risk[n3+1:n4], 
-       col = "turquoise", pch = 20)
-legend("topright", pch = 20, col = c("orchid", "hotpink", "steelblue", "turquoise"),
+points(km_dur$time[(n1+1):n2], km_dur$n.risk[(n1+1):n2], 
+       col = "#1E88E5", pch = 20)
+points(km_dur$time[(n2+1):n3], km_dur$n.risk[(n2+1):n3], 
+       col = "#FFC107", pch = 17)
+points(km_dur$time[(n3+1):n4], km_dur$n.risk[(n3+1):n4], 
+       col = "#004D40", pch = 18)
+legend("topright", pch = c(15, 20, 17, 18), col = c("#D81B60", "#1E88E5", "#FFC107", "#004D40"),
        bty = "n",  c("Women West", "Women East", "Men West", "Men East") )
 
 plot(km_dur$time[1:n1], km_dur$n.event[1:n1], 
-     col = "orchid", pch = 20,
+     col = "#D81B60", pch = 15,
      xlab = "Duration of the cohabitation (years)",
      ylab = "No. of events")
 
 points(km_dur$time[n1+1:n2], km_dur$n.event[n1+1:n2], 
-       col = "hotpink", pch = 20)
+       col = "#1E88E5", pch = 20)
 points(km_dur$time[n2+1:n3], km_dur$n.event[n2+1:n3], 
-       col = "steelblue", pch = 20)
+       col = "#FFC107", pch = 17)
 points(km_dur$time[n3+1:n4], km_dur$n.event[n3+1:n4], 
-       col = "turquoise", pch = 20)
+       col = "#004D40", pch = 18)
 abline(v=23, lwd = 0.5, lty = 2, col = "grey50")
-legend("topright", pch = 20, col = c("orchid", "hotpink", "steelblue", "turquoise"),
+legend("topright", pch = c(15, 20, 17, 18), col = c("#D81B60", "#1E88E5", "#FFC107", "#004D40"),
        bty = "n",  c("Women West", "Women East", "Men West", "Men East") )
